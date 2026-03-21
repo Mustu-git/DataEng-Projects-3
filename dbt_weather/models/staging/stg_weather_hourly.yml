@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_weather_hourly
+    description: "Hourly NYC weather unpacked from raw JSON. One row per hour."
+    columns:
+      - name: hour_ts
+        tests:
+          - not_null
+          - unique
+      - name: temperature_f
+        tests:
+          - not_null
+      - name: precipitation_mm
+        tests:
+          - not_null
+      - name: weather_date
+        tests:
+          - not_null

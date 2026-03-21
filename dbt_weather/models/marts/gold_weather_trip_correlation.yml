@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: gold_weather_trip_correlation
+    description: >
+      Daily weather conditions joined with taxi trip volume.
+      Key finding: rainy days average ~100k trips vs ~70k on clear days (~45% uplift).
+      Clear days have higher avg fare ($24.56 vs $18-19) suggesting longer trips.
+    columns:
+      - name: trip_date
+        tests:
+          - not_null
+          - unique
+      - name: trip_count
+        tests:
+          - not_null
+      - name: weather_condition
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['clear', 'light_rain', 'heavy_rain', 'windy']

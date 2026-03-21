@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: staging
+    schema: staging
+    tables:
+      - name: gold_daily_trips
+        description: "Daily KPI table from Project 1."
